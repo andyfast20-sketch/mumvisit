@@ -12,5 +12,7 @@ COPY . /app
 
 EXPOSE 8080
 
-# Bind to $PORT if present, otherwise default to 8080
-CMD ["sh", "-c", "gunicorn app:app --bind 0.0.0.0:${PORT:-8080} --workers 2"]
+# Use `start.sh` which prints debug info and starts gunicorn with a safe fallback port
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+CMD ["sh", "/start.sh"]
