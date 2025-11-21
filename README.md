@@ -1,4 +1,4 @@
-# MumVisit — Starter Website
+# Mental Health Charities — Starter Website
 
 This repository contains a minimal starter website using HTML, CSS, JavaScript, and a small Python (Flask) backend.
 
