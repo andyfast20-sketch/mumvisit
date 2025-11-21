@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Find Mental Health Charities — MumVisit{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>Find Support</h2>
+      <p>Browse trusted mental health charities and organisations. Use the search to filter by name or country.</p>
+      <div class="search-row">
+        <input id="search" type="search" placeholder="Search charities by name or country..." aria-label="Search charities">
+      </div>
+    </div>
+  </section>
+
+  <section class="list-section">
+    <div id="charity-list" class="grid">
+      {% for c in charities %}
+      <article class="card" data-name="{{ c.name|lower }}" data-country="{{ c.country|lower }}">
+        {% if c.logo %}
+          <img class="card-logo" src="{{ c.logo }}" alt="{{ c.name }} logo" loading="lazy">
+        {% else %}
+          <div class="card-avatar">{{ c.name[0] }}</div>
+        {% endif %}
+        <div class="card-body">
+          <h3 class="card-title"><a href="{{ c.website }}" target="_blank" rel="noopener noreferrer">{{ c.name }}</a></h3>
+          <p class="card-tag">{{ c.tagline }}</p>
+          <p class="card-desc">{{ c.description }}</p>
+        </div>
+        <div class="card-meta">{{ c.country }}</div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}
