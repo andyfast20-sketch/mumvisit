@@ -1,8 +1,11 @@
 /* Basic starter styles */
 :root{
-  --bg:#f8f9fb;
-  --text:#222;
-  --accent:#2b6df6;
+  /* Fly-like purple/pink palette */
+  --bg: linear-gradient(180deg, #fbf8ff 0%, #fff7fb 100%);
+  --text:#0f1724;
+  --accent:#7c3aed; /* deep violet */
+  --accent-2:#c084fc; /* lighter purple */
+  --muted:#6b7280;
 }
 
 html,body{height:100%;margin:0;font-family:Segoe UI, Roboto, Arial, sans-serif;background:var(--bg);color:var(--text)}
@@ -18,30 +21,31 @@ header{background:white;padding:1rem 1.25rem;box-shadow:0 1px 3px rgba(0,0,0,0.0
   .brand-logo{width:36px;height:36px}
   .brand-name{font-weight:700;color:var(--accent);font-size:1.05rem}
   .main-nav a{margin-left:18px;color:#445; text-decoration:none;padding:8px 10px;border-radius:8px}
-  .main-nav a.cta{background:linear-gradient(90deg,var(--accent),#7bc1ff);color:white}
-  .main-nav a:hover{background:rgba(43,109,246,0.06)}
+  .main-nav a.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white}
+  .main-nav a:hover{background:rgba(124,58,237,0.06)}
 
   /* Hero */
-  .hero{padding:28px 0;margin:18px 0}
+  .hero{padding:28px 0;margin:18px 0;background: linear-gradient(90deg, rgba(124,58,237,0.06), rgba(192,132,252,0.03));border-radius:14px}
   .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:center}
-  .hero-title{font-size:2rem;margin:0;color:#0f1724}
-  .hero-sub{color:#445;margin-top:8px;font-size:1rem}
+  .hero-title{font-size:2rem;margin:0;color:var(--text)}
+  .hero-sub{color:var(--muted);margin-top:8px;font-size:1rem}
   .hero-visual{display:flex;align-items:center;justify-content:center}
   .search-row{margin-top:16px}
-  .search-row input[type="search"]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(13,18,33,0.06);font-size:1rem;box-shadow:0 6px 20px rgba(59,130,246,0.04)}
+  .search-row input[type="search"]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid rgba(13,18,33,0.06);font-size:1rem;box-shadow:0 10px 30px rgba(124,58,237,0.06)}
 
   /* Controls */
   .list-controls{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
   .stats{color:#334}
   .filters .chip{background:#fff;border:1px solid rgba(13,18,33,0.06);padding:8px 12px;border-radius:999px;margin-left:8px;cursor:pointer}
-  .filters .chip:hover{background:rgba(43,109,246,0.04)}
+  .filters .chip.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;border-color:transparent}
+  .filters .chip:hover{background:rgba(124,58,237,0.04)}
 
   /* Grid */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-  .card{background:white;border-radius:14px;padding:16px;box-shadow:0 10px 30px rgba(2,6,23,0.06);display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease}
-  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(2,6,23,0.08)}
+  .card{background:white;border-radius:14px;padding:16px;box-shadow:0 10px 30px rgba(2,6,23,0.06);display:flex;flex-direction:column;gap:10px;transition:transform .18s ease,box-shadow .18s ease;border:1px solid rgba(124,58,237,0.04)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 28px 60px rgba(124,58,237,0.08)}
   .card-top{display:flex;gap:12px;align-items:center}
-  .card-logo{width:56px;height:56px;border-radius:8px;object-fit:contain;background:linear-gradient(135deg,var(--accent),#7bc1ff);padding:8px}
+  .card-logo{width:56px;height:56px;border-radius:8px;object-fit:contain;background:linear-gradient(135deg,var(--accent),var(--accent-2));padding:8px}
   .card-avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7bc1ff);color:white;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.25rem}
   .card-head{display:flex;flex-direction:column}
   .card-title{margin:0;font-size:1.05rem}
