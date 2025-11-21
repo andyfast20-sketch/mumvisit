@@ -4,12 +4,12 @@ This repository contains a minimal starter website using HTML, CSS, JavaScript, 
 
 Project layout
 ```
-mumvisit/
+mental-health-charities/
 ├─ app.py
 ├─ requirements.txt
 ├─ templates/
 │  ├─ base.html
-│  └─ index.html
+	│  └─ index.html
 ├─ static/
 │  ├─ css/
 │  │  └─ style.css
@@ -61,7 +61,7 @@ Deploying to Fly.io
 - Login and create an app (from the repo root):
 
 ```bash
-fly launch --image=registry.fly.io/<app-name> --name mumvisit
+fly launch --image=registry.fly.io/<app-name> --name mental-health-charities
 ```
 
 Or let Fly create the configuration for you interactively with `fly launch`. The included `Dockerfile` and `fly.toml` are starter files — use `fly launch` to finalize the app name and region.
@@ -77,8 +77,8 @@ Fly will build the Docker image and run the container; the app should bind to th
 Local testing with Docker (optional):
 
 ```powershell
-docker build -t mumvisit:local .
-docker run -p 8080:8080 -e PORT=8080 mumvisit:local
+docker build -t mental-health-charities:local .
+docker run -p 8080:8080 -e PORT=8080 mental-health-charities:local
 ```
 
 If you prefer not to use Docker, run `fly launch` and pick the `python` builder or let Fly detect the project — Fly supports multiple deployment workflows.
