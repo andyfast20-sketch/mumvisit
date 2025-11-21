@@ -5,28 +5,55 @@
 {% block content %}
   <section class="hero">
     <div class="hero-inner">
-      <h2>Find Support</h2>
-      <p>Browse trusted mental health charities and organisations. Use the search to filter by name or country.</p>
-      <div class="search-row">
-        <input id="search" type="search" placeholder="Search charities by name or country..." aria-label="Search charities">
+      <div class="hero-grid">
+        <div>
+          <h1 class="hero-title">Find trusted mental health charities</h1>
+          <p class="hero-sub">Browse organisations offering support, information and services. Search, filter and learn how to get help.</p>
+
+          <div class="search-row">
+            <input id="search" type="search" placeholder="Search charities by name or country..." aria-label="Search charities">
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <svg width="260" height="160" viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="260" height="160" rx="16" fill="url(#g)"/>
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2B6DF6" stop-opacity="0.12"/>
+                <stop offset="1" stop-color="#7BC1FF" stop-opacity="0.06"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="list-section">
-    <div id="charity-list" class="grid">
+    <div class="list-controls">
+      <div class="stats">Showing <strong>{{ charities|length }}</strong> charities</div>
+      <div class="filters">
+        <button class="chip" data-filter="all">All</button>
+        <button class="chip" data-filter="uk">UK</button>
+        <button class="chip" data-filter="usa">USA</button>
+      </div>
+    </div>
+
+    <div id="charity-list" class="grid" role="list">
       {% for c in charities %}
-      <article class="card" data-name="{{ c.name|lower }}" data-country="{{ c.country|lower }}">
-        {% if c.logo %}
-          <img class="card-logo" src="{{ c.logo }}" alt="{{ c.name }} logo" loading="lazy">
-        {% else %}
-          <div class="card-avatar">{{ c.name[0] }}</div>
-        {% endif %}
-        <div class="card-body">
-          <h3 class="card-title"><a href="{{ c.website }}" target="_blank" rel="noopener noreferrer">{{ c.name }}</a></h3>
-          <p class="card-tag">{{ c.tagline }}</p>
-          <p class="card-desc">{{ c.description }}</p>
+      <article class="card" role="listitem" data-name="{{ c.name|lower }}" data-country="{{ c.country|lower }}">
+        <div class="card-top">
+          {% if c.logo %}
+            <img class="card-logo" src="{{ c.logo }}" alt="{{ c.name }} logo" loading="lazy">
+          {% else %}
+            <div class="card-avatar">{{ c.name[0] }}</div>
+          {% endif %}
+          <div class="card-head">
+            <h3 class="card-title"><a href="{{ c.website }}" target="_blank" rel="noopener noreferrer">{{ c.name }}</a></h3>
+            <div class="card-tag">{{ c.tagline }}</div>
+          </div>
         </div>
+        <p class="card-desc">{{ c.description }}</p>
         <div class="card-meta">{{ c.country }}</div>
       </article>
       {% endfor %}
