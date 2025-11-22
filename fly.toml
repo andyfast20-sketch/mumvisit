@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for mumvisit-kq5lia on 2025-11-21T20:53:35Z
+# fly.toml app configuration file generated for mumvisit on 2025-11-22T14:03:51Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'mumvisit-kq5lia'
+app = 'mumvisit'
 primary_region = 'lhr'
 
 [build]
